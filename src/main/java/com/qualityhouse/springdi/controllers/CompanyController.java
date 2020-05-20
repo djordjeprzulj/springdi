@@ -24,6 +24,11 @@ public class CompanyController {
         return this.companyService.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Company getById(@PathVariable Integer id) {
+        return this.companyService.findById(id);
+    }
+
     @GetMapping("/paged")
     public Page<Company> getPaged(Pageable pageable) {
         return this.companyService.getPaged(pageable);

@@ -48,4 +48,9 @@ public class CompanyServiceRsMoc implements CompanyService {
     public void delete(Integer id) {
 
     }
+
+    @Override
+    public Company findById(Integer id) {
+        return null;
+    }
 }

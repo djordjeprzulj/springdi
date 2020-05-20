@@ -63,5 +63,10 @@ public class CompanyServiceImpl implements CompanyService {
         }
     }
 
+    @Override
+    public Company findById(Integer id) {
+        return this.companyRepository.findById(id).get();
+    }
+
 
 }
