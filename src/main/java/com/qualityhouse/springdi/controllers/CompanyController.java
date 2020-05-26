@@ -2,13 +2,17 @@ package com.qualityhouse.springdi.controllers;
 
 import com.qualityhouse.springdi.domain.Company;
 import com.qualityhouse.springdi.services.CompanyService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/companies")
 public class CompanyController {
@@ -52,5 +56,15 @@ public class CompanyController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         this.companyService.delete(id);
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        log.info("CompanyController instance created");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        log.info("CompanyController destroyed");
     }
 }
